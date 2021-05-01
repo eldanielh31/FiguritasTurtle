@@ -12,3 +12,6 @@ class Circulo:
 
     def construir(self, tortuga):
         tortuga.circle(self.radio)
+
+    def irCentro(self):
+        print("hola")

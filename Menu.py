@@ -16,8 +16,9 @@ class Menu:
         self.mainVentana.geometry("500x300")
         self.mainVentana.config(bg='black')
         self.primeraFigura = True
+        self.nombreFigura = ""
 
-        self.texto = tk.Label(self.mainVentana, text = "ELIJA PRIMERA FIGURA")
+        self.texto = tk.Label(self.mainVentana, text = "Elija primera figura")
         self.texto.config(fg = "green",
                         bg = "black",
                         font=("Verdana",24))
@@ -80,11 +81,12 @@ class Menu:
             self.habilitarBotones()
 
             self.dibujos.dibujarCirculo(self.w.value)
-            self.primeraFigura = False
             self.texto.config(text="ELIJA SEGUNDA FIGURA")
+            self.nombreFigura = "circulo"
+            self.primeraFigura = False
             
         else:
-            self.primeraFigura = True     
+            self.primeraFigura = True   
 
     def popupCuadrado(self):
         if (self.primeraFigura):
@@ -94,6 +96,7 @@ class Menu:
             self.habilitarBotones()
 
             self.dibujos.dibujarCuadrado(self.w.value)
+            self.nombreFigura = "cuadrado"
             self.primeraFigura = False
 
         else:
@@ -107,6 +110,7 @@ class Menu:
             self.habilitarBotones()
 
             self.dibujos.dibujarTriangulo(self.w.value)
+            self.nombreFigura = "triangulo"
             self.primeraFigura = False
 
         else:
@@ -120,6 +124,7 @@ class Menu:
             self.habilitarBotones()
 
             self.dibujos.dibujarHexagono(self.w.value)
+            self.nombreFigura = "hexagono"
             self.primeraFigura = False
 
         else:
@@ -133,6 +138,7 @@ class Menu:
             self.habilitarBotones()
 
             self.dibujos.dibujarPentagono(self.w.value)
+            self.nombreFigura = "pentagono"
             self.primeraFigura = False
 
         else:
@@ -146,6 +152,7 @@ class Menu:
             self.habilitarBotones()
 
             self.dibujos.dibujarRombo(self.w.value)
+            self.nombreFigura = "rombo"
             self.primeraFigura = False
 
         else:
