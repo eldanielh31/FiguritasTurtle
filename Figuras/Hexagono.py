@@ -13,4 +13,4 @@ class Hexagono:
     def construir(self, tortuga):
         for _ in range(6):
             tortuga.forward(self.lado)
-            tortuga.right(360 / 6)
+            tortuga.left(360 / 6)
