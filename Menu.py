@@ -89,9 +89,13 @@ class Menu:
             self.texto.config(text="Elija primera figura")
             self.primeraFigura = True
 
-            if(self.nombreFigura == "cuadrado" or self.nombreFigura == "triangulo"):
+            if(self.nombreFigura == "triangulo"):
                 self.dibujos.tortuga1.forward(self.w.value / 2)
                 self.dibujos.dibujarCirculo(self.w.value/3.5)
+            
+            elif(self.nombreFigura == "cuadrado"):
+                self.dibujos.tortuga1.forward(self.w.value / 2)
+                self.dibujos.dibujarCirculo(self.w.value/2)
 
             elif(self.nombreFigura == "rombo"):
                 self.dibujos.tortuga1.left(45)
@@ -103,13 +107,13 @@ class Menu:
                 self.dibujos.tortuga1.left(72)
                 self.dibujos.tortuga1.forward(self.w.value / 2)
                 self.dibujos.dibujarCirculo(self.w.value / 1.45)
+
+            elif(self.nombreFigura == "hexagono"):
+                self.dibujos.tortuga1.forward(self.w.value / 2)
+                self.dibujos.dibujarCirculo(self.w.value/1.16)
             
             else:
                 self.dibujos.dibujarCirculo(self.w.value/2)
-
-            angInt = 180 - 360/4
-            dezp = math.sqrt((((self.w.value)/2)**2) + (((self.w.value)/2)**2))
-
 
             
     def popupCuadrado(self):
