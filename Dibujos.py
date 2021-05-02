@@ -4,6 +4,7 @@ from Figuras.Cuadrado import Cuadrado
 from Figuras.Circulo import Circulo
 from Figuras.Pentagono import Pentagono
 from Figuras.Hexagono import Hexagono
+from Figuras.Rombo import Rombo
 
 class Dibujos:
     def __init__(self):
@@ -21,7 +22,6 @@ class Dibujos:
     def dibujarCirculo(self, radio):
         self.circulo = Circulo(radio)
         self.circulo.construir(self.tortuga1)
-        self.circulo.irCentro(self.tortuga1)
 
     def dibujarCuadrado(self, lado):
         self.cuadrado = Cuadrado(lado)
@@ -36,7 +36,7 @@ class Dibujos:
         self.pentagono.construir(self.tortuga1)
 
     def dibujarRombo(self, lado):
-        self.rombo = Cuadrado(lado)
+        self.rombo = Rombo(lado)
         self.rombo.construir(self.tortuga1)
 
     def exitOnClick(self):

@@ -1,5 +1,6 @@
 from tkinter import *
 
+import math
 from turtle import *
 from Figuras.Triangulo import Triangulo
 from Figuras.Cuadrado import Cuadrado
@@ -86,8 +87,30 @@ class Menu:
             
         else:
             self.texto.config(text="Elija primera figura")
-            self.dibujos.dibujarCirculo(self.w.value)
-            self.primeraFigura = True   
+            self.primeraFigura = True
+
+            if(self.nombreFigura == "cuadrado" or self.nombreFigura == "triangulo"):
+                self.dibujos.tortuga1.forward(self.w.value / 2)
+                self.dibujos.dibujarCirculo(self.w.value/3.5)
+
+            elif(self.nombreFigura == "rombo"):
+                self.dibujos.tortuga1.left(45)
+                self.dibujos.tortuga1.forward(self.w.value / 2)
+                self.dibujos.dibujarCirculo(self.w.value/2)
+
+            elif(self.nombreFigura == "pentagono"):
+                self.dibujos.tortuga1.forward(self.w.value)
+                self.dibujos.tortuga1.left(72)
+                self.dibujos.tortuga1.forward(self.w.value / 2)
+                self.dibujos.dibujarCirculo(self.w.value / 1.45)
+            
+            else:
+                self.dibujos.dibujarCirculo(self.w.value/2)
+
+            angInt = 180 - 360/4
+            dezp = math.sqrt((((self.w.value)/2)**2) + (((self.w.value)/2)**2))
+
+
             
     def popupCuadrado(self):
         if (self.primeraFigura):
@@ -181,8 +204,14 @@ class Menu:
 
         else:
             self.texto.config(text="Elija primera figura")
-            self.dibujos.dibujarRombo(self.w.value)
             self.primeraFigura = True
+            
+            if(self.nombreFigura == "circulo"):
+                self.dibujos.dibujarRombo(self.w.value * 1.4)
+
+            else:
+                self.dibujos.dibujarRombo(self.w.value)
+            
 
 class infoVentana:
     def __init__(self,master, texto):
