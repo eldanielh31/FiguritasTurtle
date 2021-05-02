@@ -11,7 +11,13 @@ class Circulo:
         self.radio = nuevoRadio
 
     def construir(self, tortuga):
+        tortuga.pencolor("red")
         tortuga.circle(self.radio)
 
-    def irCentro(self):
-        print("hola")
+    def irCentro(self, tortuga):
+        tortuga.penup()
+        tortuga.left(90)
+        tortuga.forward(self.radio)
+        tortuga.left(180)
+        tortuga.pendown()
+        

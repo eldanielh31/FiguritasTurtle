@@ -12,6 +12,7 @@ class Pentagono:
 
     def construir(self, tortuga):
         for _ in range(5):
+            tortuga.pencolor("yellow")
             tortuga.forward(self.lado)
             tortuga.left(72)
   

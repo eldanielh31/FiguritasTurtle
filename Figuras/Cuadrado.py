@@ -11,6 +11,7 @@ class Cuadrado:
         self.lado = nuevoLado
 
     def construir(self, tortuga):
+        tortuga.pencolor("purple")
         tortuga.forward(self.lado) 
         tortuga.left(90) 
     

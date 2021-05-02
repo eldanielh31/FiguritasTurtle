@@ -8,6 +8,7 @@ from Figuras.Hexagono import Hexagono
 class Dibujos:
     def __init__(self):
         self.pantalla = Screen()
+        self.pantalla.screensize(2000, 2000)
         self.pantalla.setup(width=750, height=500)
 
         self.tortuga1 = Turtle()
@@ -20,6 +21,7 @@ class Dibujos:
     def dibujarCirculo(self, radio):
         self.circulo = Circulo(radio)
         self.circulo.construir(self.tortuga1)
+        self.circulo.irCentro(self.tortuga1)
 
     def dibujarCuadrado(self, lado):
         self.cuadrado = Cuadrado(lado)

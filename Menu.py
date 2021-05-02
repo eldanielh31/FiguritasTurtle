@@ -1,4 +1,4 @@
-import tkinter as tk
+from tkinter import *
 
 from turtle import *
 from Figuras.Triangulo import Triangulo
@@ -11,17 +11,14 @@ from Dibujos import Dibujos
 class Menu:
     def __init__(self):
 
-        self.mainVentana = tk.Tk()
+        self.mainVentana = Tk()
         self.mainVentana.title("Menu Principal")
         self.mainVentana.geometry("500x300")
-        self.mainVentana.config(bg='black')
         self.primeraFigura = True
         self.nombreFigura = ""
 
-        self.texto = tk.Label(self.mainVentana, text = "Elija primera figura")
-        self.texto.config(fg = "green",
-                        bg = "black",
-                        font=("Verdana",24))
+        self.texto = Label(self.mainVentana, text = "Elija primera figura")
+        self.texto.config(font=("Century" , 24))
         self.texto.grid(row = 0, column = 1)
 
         self.dibujos = Dibujos()
@@ -55,130 +52,162 @@ class Menu:
         self.mainVentana.rowconfigure(2, weight=1)
         self.mainVentana.rowconfigure(3, weight=1)
 
-        self.circulo = tk.Button(self.mainVentana, text = "Circulo", command = self.popupCirculo)
+        self.circulo = Button(self.mainVentana, text = "🟣", width = 10, height = 2, command = self.popupCirculo)
         self.circulo.grid(row=1, column=0)
         
-        self.cuadrado = tk.Button(self.mainVentana, text="Cuadrado", command = self.popupCuadrado)
+        self.cuadrado = Button(self.mainVentana, text="🟪", width = 10, height = 2, command = self.popupCuadrado)
         self.cuadrado.grid(row=1, column=1)
         
-        self.triangulo = tk.Button(self.mainVentana, text="Triangulo", command = self.popupTriangulo)
+        self.triangulo = Button(self.mainVentana, text="🔺", width = 10, height = 2, command = self.popupTriangulo)
         self.triangulo.grid(row=1, column=2)
 
-        self.hexagono = tk.Button(self.mainVentana, text = "Hexagono", command = self.popupHexagono)
+        self.hexagono = Button(self.mainVentana, text = "Hexagono", width = 10, height = 2, command = self.popupHexagono)
         self.hexagono.grid(row=2, column=0)
         
-        self.pentagono = tk.Button(self.mainVentana, text="Pentagono", command = self.popupPentagono)
+        self.pentagono = Button(self.mainVentana, text="Pentagono", width = 10, height = 2, command = self.popupPentagono)
         self.pentagono.grid(row=2, column=1)
         
-        self.rombo = tk.Button(self.mainVentana, text="Rombo", command = self.popupRombo)
+        self.rombo = Button(self.mainVentana, text="🔷", width = 10, height = 2, command = self.popupRombo)
         self.rombo.grid(row=2, column=2)
 
     def popupCirculo(self):
         if (self.primeraFigura):
+            self.dibujos.pantalla.clear()
+            self.dibujos.tortuga1 = Turtle()
             self.w=infoVentana(self.mainVentana, "Ingrese radio de la figura:")
             self.deshabilitarBotones()
             self.mainVentana.wait_window(self.w.top)
             self.habilitarBotones()
 
             self.dibujos.dibujarCirculo(self.w.value)
-            self.texto.config(text="ELIJA SEGUNDA FIGURA")
+            self.texto.config(text="Elija segunda figura")
             self.nombreFigura = "circulo"
             self.primeraFigura = False
             
         else:
+            self.texto.config(text="Elija primera figura")
+            self.dibujos.dibujarCirculo(self.w.value)
             self.primeraFigura = True   
-
+            
     def popupCuadrado(self):
         if (self.primeraFigura):
+            self.dibujos.pantalla.clear()
+            self.dibujos.tortuga1 = Turtle()
             self.w=infoVentana(self.mainVentana, "Ingrese lado de la figura:")
             self.deshabilitarBotones()
             self.mainVentana.wait_window(self.w.top)
             self.habilitarBotones()
 
             self.dibujos.dibujarCuadrado(self.w.value)
+            self.texto.config(text="Elija segunda figura")
             self.nombreFigura = "cuadrado"
             self.primeraFigura = False
 
         else:
+            self.texto.config(text="Elija primera figura")
+            self.dibujos.dibujarCuadrado(self.w.value)
             self.primeraFigura = True
 
     def popupTriangulo(self):
         if (self.primeraFigura):
+            self.dibujos.pantalla.clear()
+            self.dibujos.tortuga1 = Turtle()
             self.w=infoVentana(self.mainVentana, "Ingrese lado de la figura:")
             self.deshabilitarBotones()
             self.mainVentana.wait_window(self.w.top)
             self.habilitarBotones()
 
             self.dibujos.dibujarTriangulo(self.w.value)
+            self.texto.config(text="Elija segunda figura")
             self.nombreFigura = "triangulo"
             self.primeraFigura = False
 
         else:
+            self.texto.config(text="Elija primera figura")
+            self.dibujos.dibujarTriangulo(self.w.value)
             self.primeraFigura = True
     
     def popupHexagono(self):
         if (self.primeraFigura):
+            self.dibujos.pantalla.clear()
+            self.dibujos.tortuga1 = Turtle()
             self.w=infoVentana(self.mainVentana, "Ingrese lado de la figura:")
             self.deshabilitarBotones()
             self.mainVentana.wait_window(self.w.top)
             self.habilitarBotones()
 
             self.dibujos.dibujarHexagono(self.w.value)
+            self.texto.config(text="Elija segunda figura")
             self.nombreFigura = "hexagono"
             self.primeraFigura = False
 
         else:
+            self.texto.config(text="Elija primera figura")
+            self.dibujos.dibujarHexagono(self.w.value)
             self.primeraFigura = True
 
     def popupPentagono(self):
         if (self.primeraFigura):
+            self.dibujos.pantalla.clear()
+            self.dibujos.tortuga1 = Turtle()
             self.w=infoVentana(self.mainVentana, "Ingrese lado de la figura:")
             self.deshabilitarBotones()
             self.mainVentana.wait_window(self.w.top)
             self.habilitarBotones()
 
             self.dibujos.dibujarPentagono(self.w.value)
+            self.texto.config(text="Elija segunda figura")
             self.nombreFigura = "pentagono"
             self.primeraFigura = False
 
         else:
+            self.texto.config(text="Elija primera figura")
+            self.dibujos.dibujarPentagono(self.w.value)
             self.primeraFigura = True
 
     def popupRombo(self):
         if (self.primeraFigura):
+            self.dibujos.pantalla.clear()
+            self.dibujos.tortuga1 = Turtle()
             self.w=infoVentana(self.mainVentana, "Ingrese lado de la figura:")
             self.deshabilitarBotones()
             self.mainVentana.wait_window(self.w.top)
             self.habilitarBotones()
 
             self.dibujos.dibujarRombo(self.w.value)
+            self.texto.config(text="Elija segunda figura")
             self.nombreFigura = "rombo"
             self.primeraFigura = False
 
         else:
+            self.texto.config(text="Elija primera figura")
+            self.dibujos.dibujarRombo(self.w.value)
             self.primeraFigura = True
 
 class infoVentana:
     def __init__(self,master, texto):
-        top=self.top = tk.Toplevel(master)
+        top=self.top = Toplevel(master)
         top.geometry("200x75")
         top.resizable(False, False)
-        self.l=tk.Label(self.top,text=texto)
+        self.l=Label(self.top,text=texto)
         self.l.pack()
-        self.e=tk.Entry(top)
+        self.e=Entry(top)
         self.e.pack()
-        self.b=tk.Button(top,text='Ok',command=self.cleanup)
+        self.b=Button(top,text='Ok',command=self.cleanup)
         self.b.pack()
+        
     def cleanup(self):
         self.value=self.e.get()
         if((self.isInt(self.value))):
             if(int(self.value) > 0):
                 self.value = int(self.value)
                 self.top.destroy()
+            else:
+                messagebox.showerror(title= "Error", message= "El valor introducido debe ser positivo.")
+
         else:
-            tk.messagebox.showerror(title= "Error", message= "El valor introducido no puede ser procesado.")
+            messagebox.showerror(title= "Error", message= "El valor introducido no puede ser procesado.")
             
-    
     def isInt(self, string):
         try:
             int(string)
@@ -186,4 +215,6 @@ class infoVentana:
         except ValueError:
             return False
 
-Menu().start()
+
+if __name__ == '__main__':
+    Menu().start()

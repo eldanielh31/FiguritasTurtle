@@ -12,5 +12,6 @@ class Triangulo:
 
     def construir(self, tortuga):
         for i in range(3):
+            tortuga.pencolor("green")
             tortuga.forward(self.lado)
             tortuga.left(120)
